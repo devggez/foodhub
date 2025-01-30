@@ -23,18 +23,20 @@ session_start();
 					$stmt = $dbcon->query($query);
 					$users = $stmt->fetchAll();
 
-					echo "<h3>User Information</h3><table border='1'><tr><th>Username</th><th>Email</th><th>Phone</th><th>Address</th></tr>";
+					echo "<h3>User Information</h3><table border='1'><tr><th>Username</th><th>Email</th><th>Phone</th><th>Address</th><th>Password</th></tr>";
 
 					foreach ($users as $user) {
 						$decrypted_email = decryptData($user['user_email'], $key);
 						$decrypted_phone = decryptData($user['user_phone'], $key);
 						$decrypted_address = decryptData($user['user_address'], $key);
+						$decrypted_pass = decryptData($user['user_password'], $key);
 
 						echo "<tr>
 								<td>{$user['username']}</td>
 								<td>{$decrypted_email}</td>
 								<td>{$decrypted_phone}</td>
 								<td>{$decrypted_address}</td>
+								<td>{$decrypted_pass}</td>
 							  </tr>";
 					}
 

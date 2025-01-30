@@ -41,7 +41,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['role']) && isset($_SESSION[
             Username: <input type="text" name="uname"><br><br>
             Password: <input type="password" name="upass"><br><br>
             <br><br>
-            <input type="submit" value="Sign In"> <a href="adduser">Register</a>
+            <input type="submit" value="Sign In"><a href="adduser">Register</a>
         </form>
     </div>
         
