@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2025 at 04:52 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Jan 29, 2025 at 08:03 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,18 +40,18 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`item_id`, `item_name`, `item_price`, `item_rating`, `restaurant_id`) VALUES
-(1, 'Burger', 180, 5, 3),
-(2, 'Pizza', 500, 4.5, 3),
-(3, 'Pasta', 250, 0, 2),
-(4, 'Nachos', 250, 0, 1),
-(5, 'Halim', 150, 2, 1),
-(6, 'BBQ Chicken', 200, 0, 1),
-(7, 'Subway Sandwiches', 250, 0, 6),
-(8, 'Subway Sandwiches', 280, 0, 10),
-(9, 'Mexican Nachos', 450, 0, 5),
-(10, 'Chicken pizza', 450, 0, 4),
-(11, 'Mexican Nachos', 350, 0, 2),
-(12, 'BBQ Rice Bowl', 550, 3.5, 3);
+(1, 'Burger', 2000, 1.2, 3),
+(2, 'Pizza', 2500, 1.5, 3),
+(3, 'Pasta', 500, 0, 2),
+(4, 'BBQ Nachos', 450, 0, 1),
+(5, 'Halim', 150, 0, 1),
+(6, 'BBQ Chicken', 350, 0, 1),
+(7, 'Subway Sandwiches', 700, 0, 6),
+(8, 'Subway Sandwiches', 700, 0, 10),
+(9, 'Mexican Nachos', 1100, 0, 5),
+(10, 'Chicken pizza', 500, 0, 4),
+(11, 'Mexican Nachos', 1100, 0, 2),
+(12, 'BBQ Rice Bowl', 500, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -74,12 +74,12 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `order_type`, `order_placed`, `order_status`, `item_id`, `quantity`) VALUES
-(1, 2, 'onspot', '2024-11-17 17:20:00', 'pending', 1, 1),
-(2, 2, 'homedelivery', '2024-11-17 17:30:00', 'success', 2, 1),
-(3, 2, 'homedelivery', '2024-11-17 17:35:08', 'pending', 1, 1),
-(4, 2, 'onspot', '2024-11-17 17:25:08', 'success', 2, 1),
-(5, 2, 'homedelivery', '2024-11-18 00:07:11', 'pending', 3, 1),
-(6, 2, 'onspot', '2024-11-18 00:10:10', 'success', 3, 1);
+(1, 2, 'onspot', '2021-04-17 17:20:00', 'pending', 1, 1),
+(2, 2, 'homedelivery', '2021-04-17 17:20:00', 'success', 2, 1),
+(3, 2, 'homedelivery', '2021-04-17 17:21:08', 'pending', 1, 1),
+(4, 2, 'onspot', '2021-04-17 17:21:08', 'success', 2, 1),
+(5, 2, 'homedelivery', '2021-04-18 00:07:11', 'pending', 3, 1),
+(6, 2, 'onspot', '2021-04-18 00:10:10', 'success', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -98,8 +98,8 @@ CREATE TABLE `promotional` (
 --
 
 INSERT INTO `promotional` (`promo_id`, `restaurant_id`, `discount`) VALUES
-(1, 1, 15),
-(2, 2, 18);
+(1, 1, 10),
+(2, 2, 12.8);
 
 -- --------------------------------------------------------
 
@@ -122,13 +122,13 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`restaurant_id`, `restaurant_name`, `restaurant_rating`, `restaurant_address`, `restaurant_logo`, `restaurant_contact`, `restaurant_bg`) VALUES
-(1, 'MasterChef', 5, 'Uttor Badda', '../restaurants/masterchef.jpg', '+880123456789', '../restaurants/MasterBackground.jpg'),
-(2, 'Hungry Nak! Food Court', 1.5, 'Vatara', '../restaurants/hnfc.jpg', '+880123456789', '../restaurants/hnfc_bg.jpg'),
-(3, 'KFC', 4.5, 'Gulshan-1', '../restaurants/kfc.png', '+880123456789', NULL),
-(4, 'Pizza Hut', 4.8, 'Merul Badda', '../restaurants/pizzahut.png', '+880123456789', NULL),
-(5, 'Cha Ache? Cafe', 2, 'ChekaPora', 'https://i1.wp.com/brunchvirals.com/wp-content/uploads/2021/05/Cha-Ache-Meme.png?w=1300&ssl=1', '+880123456789', NULL),
-(6, 'Foodies Corner', 2.5, 'Malibag', 'https://esmart.com.bd/wp-content/uploads/2018/10/restaurant-interior-design-for-free-software-restaurants.jpg', '+88015266369', NULL),
-(10, 'ABC', 3, 'Badda', 'https://media-eng.dhakatribune.com/uploads/2015/10/M-1.jpg', '+88012155154554', NULL);
+(1, 'EpicFC', 5, 'Jira', '../restaurants/epicfc.jpg', '+880123456789', '../restaurants/EpicBackground.jpg'),
+(2, 'SAD Food Court', 1.5, 'White House, Vatara', '../restaurants/sadfc.jpg', '+880123456789', '../restaurants/sadfc_bg.jpg'),
+(3, 'KFC', 4.5, 'Chefs Table', '../restaurants/kfc.png', '+880123456789', NULL),
+(4, 'Pizza Hut', 4.8, 'Wari', '../restaurants/pizzahut.png', '+880123456789', NULL),
+(5, 'KakoliCafe', 0, 'Dame kom Ave, R Plaza', 'https://i1.wp.com/brunchvirals.com/wp-content/uploads/2021/05/Kakoli-Furniture-Meme.png?w=1300&ssl=1', '+880123456789', NULL),
+(6, 'Abir Corner', 0, 'Lalmatia, Malibag', 'https://esmart.com.bd/wp-content/uploads/2018/10/restaurant-interior-design-for-free-software-restaurants.jpg', '+88015266369', NULL),
+(10, 'bfc', 0, 'Dhaka', 'https://media-eng.dhakatribune.com/uploads/2015/10/M-1.jpg', '+88012155154554', NULL);
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `usertable` (
   `user_phone` varchar(100) DEFAULT NULL,
   `user_password` varchar(100) NOT NULL,
   `user_type` varchar(10) NOT NULL,
-  `user_address` varchar(100) NOT NULL,
+  `user_address` varchar(200) NOT NULL,
   `comment` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -152,12 +152,12 @@ CREATE TABLE `usertable` (
 --
 
 INSERT INTO `usertable` (`user_id`, `username`, `user_email`, `user_phone`, `user_password`, `user_type`, `user_address`, `comment`) VALUES
-(1, 'suriya', 'snisamoni181131@bscse.uiu.ac.bd', '+8801735', '81dc9bdb52d04dc20036dbd8313ed055', 'admin', 'Narayanganj', '1234'),
-(2, 'saad', 'a@a.c', '+880961255', '81dc9bdb52d04dc20036dbd8313ed055', 'customer', 'Khilgaon', '1234'),
-(3, 'abir', 'abir@a.ul', '+80144555', '81dc9bdb52d04dc20036dbd8313ed055', 'manager', 'Pabna', '1234'),
-(4, 'pranto', 'pr@n.ka', '12525', '674f3c2c1a8a6f90461e8a66fb5550ba', 'admin', 'bbaria', '5678'),
-(5, 'nafiul', 'na@gmail.com', '+880175858585', '81dc9bdb52d04dc20036dbd8313ed055', 'customer', 'test', '1234'),
-(6, 'suraiya', 'MEhEUndFSnhiZ2NuQ3FUSktwT3VVZz09OjrIm6fOVG+Po96Y9vC/hAQ+', 'TFdHdkZWWkpYdVdubU96K0REemJDQT09OjoC4NdkAJkGY4I1Qp3zM2J/', '$2y$10$cPAbsD28iTT4Qr3xuZJ9S.byMtwvVks4o.0I/2KS8uaOkNc.RfWpq', 'admin', 'VTBaaWNCcjB4YUtmbVVUZ2lONTlydz09Ojq4IVq+U1OVYQpoQ/lF9LWg', 'Aa123456@');
+(1, 'rasedul', 'rislam181007@bscse.uiu.ac.bd', '+8801735', '1234', 'admin', 'Motijheel', ''),
+(2, 'abir', 'a@a.c', '+880961255', '1234', 'customer', 'Khilgaon', ''),
+(3, 'ashik', 'mir@ashik.ul', '+80144555', '1234', 'manager', 'Pabna', ''),
+(4, 'priyanka', 'priy@n.ka', '12525', '81dc9bdb52d04dc20036dbd8313ed055', 'admin', 'bbaria', '1234'),
+(5, 'nipa', 'nipa@gmail.com', '+880175858585', '81dc9bdb52d04dc20036dbd8313ed055', 'customer', 'test', '1234'),
+(6, 'suriya', 'enJBczRqemVOajVPYlJxRzYvVERVZz09Ojog3Lu2ts629KUt9tejCxhr', 'a2JUcjFONmJIR1gzbDQyMjdxYUd4Zz09Ojr5wWLO41wrwAXtBeW2v/cX', '$2y$10$.uj.MhreAxsFJbIiDpmzp.HKMS2cyrZRetEVGPw3KzFv/nFHHClUC', 'admin', 'S1dZN0h3Y1lnWXg3K2VsV2VmS1ZNQT09Ojozw133ZzvlLxJ37Ipz/jGn', 's@Dfggh3');
 
 --
 -- Indexes for dumped tables
@@ -231,7 +231,7 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `usertable`
 --
 ALTER TABLE `usertable`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
