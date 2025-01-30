@@ -1,5 +1,18 @@
 <?php
 session_start();
+
+include('config.php');  // Database connection
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Include PHPMailer
+
+
+
+
+
+
 if (isset($_SESSION['username']) && isset($_SESSION['role']) && isset($_SESSION['user_id']) && !empty($_SESSION['username']) && !empty($_SESSION['role']) && !empty($_SESSION['user_id'])) {
     if ($_SESSION['role'] == 'admin') {
 ?>
